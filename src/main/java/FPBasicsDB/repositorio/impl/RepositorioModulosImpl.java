@@ -17,11 +17,11 @@ import FPBasicsDB.repositorio.RepositorioModulos;
 public class RepositorioModulosImpl implements RepositorioModulos {
 
 	//private ModuloMapper mapper;
+	List<TablaModulos> modulos;
 
-	
-	@Override
-	public List<TablaModulos> consultarTodosLosRegistrosDeLaTablaModulos() {
-//		return this.mapper.consultarTodosLosRegistrosDeLaTablaModulos();
+	@Autowired
+	public RepositorioModulosImpl() {
+		super();
 		List<TablaModulos> modulos = new ArrayList<>();
 		TablaModulos modulo1 = new TablaModulos(1, "prueba1", 150, "PR");
 		TablaModulos modulo2 = new TablaModulos(2, "prueba2", 180, "SG");
@@ -35,6 +35,11 @@ public class RepositorioModulosImpl implements RepositorioModulos {
 		modulos.add(modulo4);
 		modulos.add(modulo5);
 		modulos.add(modulo6);
+	}
+	
+	@Override
+	public List<TablaModulos> consultarTodosLosRegistrosDeLaTablaModulos() {
+//		return this.mapper.consultarTodosLosRegistrosDeLaTablaModulos();
 		return modulos;
 		
 	}
