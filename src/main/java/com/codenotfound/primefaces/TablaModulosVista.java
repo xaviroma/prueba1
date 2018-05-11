@@ -1,7 +1,9 @@
 package com.codenotfound.primefaces;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.*;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -10,8 +12,7 @@ import javax.faces.bean.ViewScoped;
 import FPBasicsDB.modelo.TablaModulos;
 import FPBasicsDB.servicio.impl.ServicioModulosImpl;
 
-
-@ManagedBean(name = "TablaModulosVista")
+@ManagedBean
 @ViewScoped
 public class TablaModulosVista implements Serializable {
 	private List<TablaModulos> modulos;
@@ -21,7 +22,8 @@ public class TablaModulosVista implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		 service.consultarTodosLosRegistrosDeLaTablaModulos();
+		modulos = new ArrayList<>();
+		modulos.addAll(service.consultarTodosLosRegistrosDeLaTablaModulos());
 	}
 
 	public List<TablaModulos> getModulos() {

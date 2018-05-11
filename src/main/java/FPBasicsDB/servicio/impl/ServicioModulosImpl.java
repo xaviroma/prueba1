@@ -5,44 +5,47 @@ import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import FPBasicsDB.modelo.TablaModulos;
-import FPBasicsDB.repositorio.RepositorioModulos;
 import FPBasicsDB.repositorio.impl.RepositorioModulosImpl;
+import FPBasicsDB.repositorio.impl.aj;
 import FPBasicsDB.servicio.ServicioModulos;
+
 
 @Service
 @ManagedBean(name = "ServicioModulosImpl")
 @ApplicationScoped
 public class ServicioModulosImpl implements ServicioModulos {
 	
-	@ManagedProperty("#{RepositorioModulosImpl}")
-	private RepositorioModulosImpl repositorioTablaModulos;
+	//@Autowired
+	//@ManagedProperty("#{RepositorioModulosImpl}")
+	public RepositorioModulosImpl repositorioModulos = new RepositorioModulosImpl();
+//	
+	List<TablaModulos> modulos;	
 	
-//	@Autowired
-//	public ServicioModulosImpl(RepositorioModulosImpl repositorioTablaModulos) {
-//		super();
-//		this.repositorioTablaModulos = repositorioTablaModulos;
+	
+//	public ServicioModulosImpl(RepositorioModulosImpl repositorioModulos) {
+//		this.repositorioModulos=repositorioModulos;
 //	}
 
-	
 	@Override
 	public List<TablaModulos> consultarTodosLosRegistrosDeLaTablaModulos() {
-		return this.repositorioTablaModulos.consultarTodosLosRegistrosDeLaTablaModulos();
+
+		return repositorioModulos.consultarTodosLosRegistrosDeLaTablaModulos(); 
 	}
 	
 	@Override
 	public List<TablaModulos> consultarRegistrosDeLaTablaModulosPorIdModulo(Integer idModulo) {
-		return this.repositorioTablaModulos.consultarRegistrosDeLaTablaModulosPorIdModulo(idModulo);
+		//return this.repositorioTablaModulos.consultarRegistrosDeLaTablaModulosPorIdModulo(idModulo);
+		return null;
 	}
 	
 	@Override
 	public void modificarRegistroDeLaTablaModulos(TablaModulos registro) {
-		this.repositorioTablaModulos.modificarRegistroDeLaTablaModulos(registro);	
+		//this.repositorioTablaModulos.modificarRegistroDeLaTablaModulos(registro);	
 	}
 
 }

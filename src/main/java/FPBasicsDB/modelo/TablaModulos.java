@@ -11,7 +11,6 @@ public class TablaModulos {
 	private final String curso;
 
 	public TablaModulos(Integer idModulo, String nombre, Integer duracion, String curso) {
-		super();
 		this.idModulo = idModulo;
 		this.nombre = nombre;
 		this.duracion = duracion;

@@ -5,24 +5,38 @@ import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import FPBasicsDB.mapper.ModuloMapper;
 import FPBasicsDB.modelo.TablaModulos;
 import FPBasicsDB.repositorio.RepositorioModulos;
 
-@ManagedBean(name = "RepositorioModulosImpl")
-@ApplicationScoped
+@Repository
+//@ManagedBean(name = "RepositorioModulosImpl")
+//@ApplicationScoped
 public class RepositorioModulosImpl implements RepositorioModulos {
 
+	//@Autowired
 	//private ModuloMapper mapper;
 	List<TablaModulos> modulos;
 
-	@Autowired
+//	public RepositorioModulosImpl(ModuloMapper mapper) {
+//		this.mapper=mapper;
+//	}
+	
 	public RepositorioModulosImpl() {
-		super();
-		List<TablaModulos> modulos = new ArrayList<>();
+		
+	}
+	
+	@Override
+	public List<TablaModulos> consultarTodosLosRegistrosDeLaTablaModulos() {
+//		return this.mapper.consultarTodosLosRegistrosDeLaTablaModulos();
+		System.out.println("estoy entrando por repositorio");
+		modulos = new ArrayList<TablaModulos>();
 		TablaModulos modulo1 = new TablaModulos(1, "prueba1", 150, "PR");
 		TablaModulos modulo2 = new TablaModulos(2, "prueba2", 180, "SG");
 		TablaModulos modulo3 = new TablaModulos(3, "prueba3", 200, "SG");
@@ -35,13 +49,7 @@ public class RepositorioModulosImpl implements RepositorioModulos {
 		modulos.add(modulo4);
 		modulos.add(modulo5);
 		modulos.add(modulo6);
-	}
-	
-	@Override
-	public List<TablaModulos> consultarTodosLosRegistrosDeLaTablaModulos() {
-//		return this.mapper.consultarTodosLosRegistrosDeLaTablaModulos();
 		return modulos;
-		
 	}
 
 	@Override
