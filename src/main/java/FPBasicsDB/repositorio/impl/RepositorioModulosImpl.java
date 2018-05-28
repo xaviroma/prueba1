@@ -24,13 +24,11 @@ public class RepositorioModulosImpl implements RepositorioModulos {
 	//private ModuloMapper mapper;
 	List<TablaModulos> modulos;
 
+//	@Autowired
 //	public RepositorioModulosImpl(ModuloMapper mapper) {
 //		this.mapper=mapper;
 //	}
 	
-	public RepositorioModulosImpl() {
-		
-	}
 	
 	@Override
 	public List<TablaModulos> consultarTodosLosRegistrosDeLaTablaModulos() {

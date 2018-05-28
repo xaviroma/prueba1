@@ -26,7 +26,7 @@ public class ServicioModulosImpl implements ServicioModulos {
 //	
 	List<TablaModulos> modulos;	
 	
-	
+//	@Autowired
 //	public ServicioModulosImpl(RepositorioModulosImpl repositorioModulos) {
 //		this.repositorioModulos=repositorioModulos;
 //	}
@@ -39,8 +39,10 @@ public class ServicioModulosImpl implements ServicioModulos {
 	
 	@Override
 	public List<TablaModulos> consultarRegistrosDeLaTablaModulosPorIdModulo(Integer idModulo) {
-		//return this.repositorioTablaModulos.consultarRegistrosDeLaTablaModulosPorIdModulo(idModulo);
-		return null;
+		//return repositorioModulos.consultarRegistrosDeLaTablaModulosPorIdModulo(idModulo);
+		TablaModulos registro1 = new TablaModulos(idModulo, "prueba1", 150, "PR");
+		modulos.add(registro1);
+		return modulos;
 	}
 	
 	@Override

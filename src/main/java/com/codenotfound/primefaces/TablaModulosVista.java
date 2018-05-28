@@ -9,6 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import FPBasicsDB.modelo.TablaModulos;
 import FPBasicsDB.servicio.impl.ServicioModulosImpl;
 
@@ -33,5 +36,6 @@ public class TablaModulosVista implements Serializable {
 	public void setService(ServicioModulosImpl service) {
 		this.service = service;
 	}
+
 
 }
